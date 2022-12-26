@@ -31,13 +31,13 @@ const Popular = () => {
 
       <Splide
         options={{
-          perPage: 5,
+          perPage: 4,
           arrows: false,
           pagination: false,
           drag: "free",
           gap: "3rem",
           breakpoints: {
-            1400: { perPage: 4, gap: "2rem" },
+            1500: { perPage: 3, gap: "2rem" },
             1200: { perPage: 3, gap: "2rem" },
             800: { perPage: 2, gap: "1rem" },
             640: { perPage: 1, gap: "2rem" },
@@ -48,9 +48,13 @@ const Popular = () => {
           return (
             <SplideSlide key={recipe.id}>
               <Card>
-                <p>{recipe.title}</p>
+                {recipe.title.length > 40 ? (
+                  <p>{recipe.title.substring(0, 43)}...</p>
+                ) : (
+                  <p>{recipe.title}</p>
+                )}
+
                 <img src={recipe.image} alt={recipe.title} />
-                {/* <p>{recipe.summary}</p> */}
               </Card>
             </SplideSlide>
           );

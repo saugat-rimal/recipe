@@ -38,8 +38,7 @@ const Veggie = () => {
           gap: "3rem",
           breakpoints: {
             1200: { perPage: 2, gap: "2rem" },
-            800: { perPage: 2, gap: "1rem" },
-            640: { perPage: 1, gap: "2rem" },
+            800: { perPage: 1, gap: "2rem" },
           },
         }}
       >
