@@ -1,8 +1,9 @@
-import { Popular } from "../components";
+import { Veggie, Popular } from "../components";
 
 const Home = () => {
   return (
     <div>
+      <Veggie />
       <Popular />
     </div>
   );

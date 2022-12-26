@@ -7,11 +7,18 @@ const Popular = () => {
   const [popular, setPopular] = useState([]);
 
   const getPopular = async () => {
-    const api = await fetch(
-      `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=10`
-    );
-    const data = await api.json();
-    setPopular(data.recipes);
+    const check = localStorage.getItem("popular");
+
+    if (check) {
+      setPopular(JSON.parse(check));
+    } else {
+      const api = await fetch(
+        `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=20`
+      );
+      const data = await api.json();
+      localStorage.setItem("popular", JSON.stringify(data.recipes));
+      setPopular(data.recipes);
+    }
   };
 
   useEffect(() => {
@@ -24,12 +31,13 @@ const Popular = () => {
 
       <Splide
         options={{
-          perPage: 4,
+          perPage: 5,
           arrows: false,
           pagination: false,
           drag: "free",
           gap: "3rem",
           breakpoints: {
+            1400: { perPage: 4, gap: "2rem" },
             1200: { perPage: 3, gap: "2rem" },
             800: { perPage: 2, gap: "1rem" },
             640: { perPage: 1, gap: "2rem" },
@@ -38,8 +46,8 @@ const Popular = () => {
       >
         {popular.map((recipe) => {
           return (
-            <SplideSlide>
-              <Card key={recipe.id}>
+            <SplideSlide key={recipe.id}>
+              <Card>
                 <p>{recipe.title}</p>
                 <img src={recipe.image} alt={recipe.title} />
                 {/* <p>{recipe.summary}</p> */}
@@ -53,7 +61,13 @@ const Popular = () => {
 };
 
 const Wrapper = styled.div`
-  margin: 4rem 1rem;
+  margin: 4rem 2rem;
+
+  h3 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+  }
 `;
 
 const Card = styled.div`
@@ -86,8 +100,9 @@ const Card = styled.div`
     transform: translateY(-50%, 0%);
     color: white;
     font-weight: 600;
-    font-size: 1.5rem;
-    height: 40%;
+    font-size: 1.4rem;
+    height: 48%;
+    padding: 0 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
