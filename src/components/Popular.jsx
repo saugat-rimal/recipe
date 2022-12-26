@@ -28,11 +28,11 @@ const Popular = () => {
           arrows: false,
           pagination: false,
           drag: "free",
-          gap: "4rem",
+          gap: "3rem",
           breakpoints: {
-            1200: { perPage: 3, gap: "3rem" },
+            1200: { perPage: 3, gap: "2rem" },
             800: { perPage: 2, gap: "1rem" },
-            640: { perPage: 1, gap: "0rem" },
+            640: { perPage: 1, gap: "2rem" },
           },
         }}
       >
@@ -53,7 +53,7 @@ const Popular = () => {
 };
 
 const Wrapper = styled.div`
-  margin: 4rem 10px;
+  margin: 4rem 1rem;
 `;
 
 const Card = styled.div`
