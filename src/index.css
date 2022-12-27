@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two&family=Manrope:wght@300;400;500;600;700;800&display=swap');
+
+
 /* Box sizing rules */
 *,
 *::before,
@@ -78,7 +81,8 @@ select {
 
 
 body {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: 'Manrope', sans-serif;
+
   line-height: 1.7rem;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -112,4 +116,31 @@ code {
     
   margin: 0  calc( 1vw );
   }
+}
+
+h4{
+  font-size: 1.1rem;
+  color: rgb(56, 56, 56);
+  font-weight: 600;
+}
+
+h3{
+  font-size: 1rem;
+  color: rgb(56, 56, 56);
+  font-weight: 500;
+}
+
+
+
+a{
+  text-decoration: none;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5rem 0;
+
 }
